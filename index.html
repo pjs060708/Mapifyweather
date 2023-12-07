@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapifyweather</title>
+    <script src="/js/map.js" defer></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <a href="/index.html"><img src="/img/logo.png" alt="로고 겸 새로고침"></a>
+        </div>
+        <div id="search-container">
+            <input id="search-box" type="text" placeholder="위치 검색">
+            <button id="search-btn">검색</button>
+        </div>
+    </header>
+    <div id="map"></div>
+    <button id="locate_btn">현위치 찾기</button>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="locationInfo"></p>
+            <p id="weatherInfo"></p>
+            <span id="weather-icon"></span>
+        </div>
+    </div> 
+    <script>
+        document.onkeydown = function (e) {
+            if (event.keyCode == 123) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+        }
+        document.oncontextmenu = function (e) {
+            e.preventDefault();
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=Google_Map_API_Key&libraries=places&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=Google_Map_API_Key&callback=initMap"></script>
+</body>
+
+</html>
